@@ -1,0 +1,139 @@
+.contactSection {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  /* AUMENTADO: 220px de espaço no topo para compensar a falta do título e descer o bloco */
+  padding: 220px 20px 100px; 
+  font-family: 'Inter', sans-serif;
+  min-height: calc(100vh - 90px); /* Mantém o alinhamento com o rodapé */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estrutura de Grid (Canais na esquerda, Mapa na direita) */
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.infoColumn h2,
+.mapSection h2 {
+  font-size: 1.4rem;
+  margin: 0 0 25px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Cards de Informações (Esquerda) */
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #121212;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #262626;
+  transition: all 0.3s ease;
+}
+
+.linkCard {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.linkCard:hover {
+  border-color: #ef4444;
+  background-color: #161616;
+}
+
+.cardIcon {
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+.card h3 {
+  font-size: 0.95rem;
+  color: #ef4444;
+  text-transform: uppercase;
+  margin: 0 0 5px 0;
+  letter-spacing: 0.5px;
+}
+
+.card p {
+  margin: 0;
+  color: #e5e5e5;
+  font-size: 0.95rem;
+}
+
+.subText {
+  font-size: 0.85rem;
+  color: #a3a3a3;
+  display: block;
+  margin-top: 2px;
+}
+
+/* Botão do WhatsApp abaixo dos Cards */
+.whatsappBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #25d366;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 25px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.whatsappBtn:hover {
+  background-color: #20ba5a;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
+}
+
+/* Seção do Mapa (Direita) */
+.mapSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.mapWrapper {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #262626;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+  line-height: 0;
+}
+
+.mapWrapper:hover {
+  border-color: #ef4444;
+}
+
+/* Responsividade (Ajustes para Tablet e Celular) */
+@media (max-width: 968px) {
+  .contactSection {
+    padding-top: 140px; /* Ajuste para telas menores */
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

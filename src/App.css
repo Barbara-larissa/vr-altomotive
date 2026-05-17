@@ -1,0 +1,236 @@
+/* Reset básico para limpar espaços indesejados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif; /* Ou a fonte que preferir */
+}
+
+body {
+  background-color: #000; /* Garante que o fundo seja sempre preto */
+  color: #fff;
+  overflow-x: hidden; /* Evita barra de rolagem lateral */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar personalizada (opcional, fica bem premium) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 10px;
+}
+
+/* --- SEÇÃO DE SERVIÇOS --- */
+.servicesSection {
+  background-color: #0a0a0a;
+  padding: 60px 0;
+  width: 100%;
+}
+
+.servicesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.serviceCard {
+  background: #111111;
+  border: 1px solid #1a1a1a;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.serviceCard:hover {
+  border-color: #ef4444;
+  transform: translateY(-10px);
+  background: #151515;
+}
+
+.serviceCard h3 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+}
+
+.serviceCard p {
+  color: #a1a1aa;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.redLine {
+  width: 35px;
+  height: 3px;
+  background-color: #ef4444;
+  margin-top: 25px;
+  transition: width 0.3s ease;
+}
+
+.serviceCard:hover .redLine {
+  width: 70px;
+}
+
+/* Container do Cabeçalho dos Serviços */
+.servicesHeader {
+  text-align: center;
+  margin-bottom: 50px; /* Dá um espaço excelente entre o título e os cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Subtítulo menor em vermelho */
+.servicesSubtitle {
+  color: #ef4444;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* Título principal em destaque */
+.servicesMainTitle {
+  color: #ffffff;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Linha vermelha de acabamento abaixo do título */
+.titleLine {
+  width: 60px;
+  height: 3px;
+  background-color: #ef4444;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+
+
+/*PAGAMENTOS */ 
+
+
+/* Faixa completa de pagamento */
+.paymentStripSection {
+  background-color: #0d0d0d; /* Um pouquinho mais claro que o fundo absoluto para dar destaque */
+  border-top: 1px solid #1f1f1f;
+  border-bottom: 1px solid #1f1f1f;
+  padding: 25px 0;
+  width: 100%;
+}
+
+/* Container centralizado */
+.paymentStripContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap; /* Garante que quebre linha no celular se faltar espaço */
+}
+
+/* Título da faixa */
+.paymentStripTitle {
+  color: #a3a3a3;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+/* Grupo dos badges */
+.paymentStripBadges {
+  display: flex;
+  gap: 15px;
+}
+
+/* Estilo de cada badge (Pix, Crédito, Débito) */
+.paymentStripBadge {
+  background-color: #050505;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 4px;
+  border: 1px solid #262626;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse por cima dos badges */
+.paymentStripBadge:hover {
+  border-color: #ef4444; /* Borda brilha em vermelho */
+  color: #ef4444; /* O texto acende em vermelho */
+  transform: translateY(-2px); /* Dá um leve pulinho para cima */
+}
+
+/* --- RESPONSIVO PARA O MOBILE --- */
+@media (max-width: 660px) {
+  .paymentStripContainer {
+    flex-direction: column; /* Empilha o título e as formas no celular */
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .paymentStripBadges {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- RESPONSIVO PARA O TÍTULO NO MOBILE --- */
+@media (max-width: 500px) {
+  .servicesMainTitle {
+    font-size: 1.6rem; /* Reduz ligeiramente para não quebrar feio em telas pequenas */
+  }
+  .servicesHeader {
+    margin-bottom: 35px; /* Reduz o espaço no mobile */
+  }
+}
+
+
+
+
+/* Ajuste Celular */
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}

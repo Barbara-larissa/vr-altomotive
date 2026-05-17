@@ -1,0 +1,113 @@
+.mainFooter {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  padding: 40px 20px 20px;
+  border-top: 3px solid #ef4444; /* Linha vermelha premium */
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerContent {
+  display: grid;
+  /* Mantive seu auto-fit, mas mudei o minmax para 220px para garantir espaço na mesma linha */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* CORRIGIDO: Removido o margin-bottom daqui para não quebrar o flex da div pai */
+.footerSection h4 {
+  color: #ef4444;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0; 
+}
+
+.iconTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  height: 24px; /* Garante que todas as barras de título tenham a mesma altura */
+}
+
+/* AJUSTADO: Adicionado um recuo exato para alinhar com o início do texto do h4 */
+.footerSection p,
+.contactLink {
+  color: #a3a3a3;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 32px; /* Espaço do ícone (20px) + gap (12px) */
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.contactLink:hover {
+  color: #ef4444;
+  transform: translateX(5px);
+}
+
+/* AJUSTADO: Alinha a lista de redes sociais com o início do texto do h4 */
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 32px; /* Espaço do ícone (20px) + gap (12px) */
+}
+
+.socialLinks a {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre o mini ícone e o texto (ex: Instagram) */
+  color: #a3a3a3;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.socialLinks a:hover {
+  color: #ef4444;
+  transform: translateX(5px);
+}
+
+.footerBottom {
+  border-top: 1px solid #262626;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.footerBottom p {
+  color: #737373;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+  .footerContent {
+    text-align: center;
+    grid-template-columns: 1fr;
+  }
+
+  .iconTitle {
+    justify-content: center;
+  }
+
+  /* Remove o recuo no mobile para o texto ficar centralizado corretamente */
+  .footerSection p,
+  .contactLink,
+  .socialLinks {
+    padding-left: 0;
+  }
+
+  .socialLinks a {
+    justify-content: center;
+  }
+}

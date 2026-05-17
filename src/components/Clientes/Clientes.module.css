@@ -1,0 +1,212 @@
+.portfolioSection {
+    background-color: #050505;
+    padding: 40px 0 80px 0;
+    min-height: 80vh;
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- CABEÇALHO (TÍTULO DA PÁGINA) --- */
+.portfolioHeader {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.portfolioMainTitle {
+    color: #ffffff;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.titleLine {
+    width: 60px;
+    height: 3px;
+    background-color: #ef4444;
+    border-radius: 2px;
+}
+
+/* Linha divisória sutil entre vídeos e fotos */
+.sectionDivider {
+    border: 0;
+    height: 1px;
+    background: #1f1f1f;
+    margin: 60px 0;
+}
+
+/* --- GRID DE VÍDEOS (3 colunas no PC) --- */
+.videosGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.videoCard {
+    background-color: #000000;
+    border: 1px solid #1f1f1f;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.videoCard video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- CARROSSEL DE FOTOS (Tamanho menor e ajustado) --- */
+.carrosselContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 50px;
+    /* Espaço para as setas laterais */
+}
+
+.photosCarrossel {
+    display: flex;
+    gap: 15px;
+    /* Espaço entre as fotos */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* Esconde a barra de rolagem horizontal */
+.photosCarrossel::-webkit-scrollbar {
+    display: none;
+}
+
+.photosCarrossel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Mantém o tamanho original discreto que você gostou */
+.photoCard {
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #1f1f1f;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    /* Impede que o flexbox encolha o tamanho da foto */
+    transition: border-color 0.3s ease;
+}
+
+.photoCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photoCard:hover {
+    border-color: #ef4444;
+}
+
+/* --- BOTÕES DE SETA DO CARROSSEL --- */
+.setaBtn {
+    position: absolute;
+    background: rgba(15, 15, 15, 0.9);
+    border: 1px solid #2a2a2a;
+    color: #ffffff;
+    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.setaBtn:hover {
+    background-color: #ef4444;
+    border-color: #ef4444;
+}
+
+.setaEsquerda {
+    left: 0px;
+}
+
+.setaDireita {
+    right: 0px;
+}
+
+/* --- RESPONSIVIDADE (Telas menores e Celular) --- */
+@media (max-width: 900px) {
+    .videosGrid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 vídeos por linha no tablet */
+    }
+}
+
+/* --- AJUSTE RESPONSIVO PARA CELULAR (Abaixo de 600px) --- */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .videosGrid {
+        grid-template-columns: 1fr;
+        /* 1 vídeo por linha no celular */
+        gap: 15px;
+    }
+
+    .carrosselContainer {
+        padding: 0;
+        /* Remove as folgas laterais para a foto usar a tela toda */
+        width: 100%;
+    }
+
+    .photosCarrossel {
+        gap: 0;
+        /* Tira o espaço entre as fotos para alinhar de 1 em 1 */
+    }
+
+    /* FORÇANDO MOSTRAR APENAS UMA FOTO POR VEZ */
+    .photoCard {
+        width: 100%;
+        /* Ocupa a largura total da tela do celular */
+        min-width: 100%;
+        /* OBRIGATÓRIO: Impede o Flexbox de esmagar as fotos juntas */
+        max-width: 100%;
+        /* Garante o limite máximo */
+        height: auto;
+        aspect-ratio: 1/1;
+        /* Mantém o quadradinho perfeito */
+        scroll-snap-align: center;
+        /* Centraliza a foto feito um imã ao arrastar */
+        border-radius: 8px;
+        /* Mantém as bordinhas arredondadas bonitas */
+    }
+
+    .setaBtn {
+        display: none;
+        /* No celular desliza com o dedo */
+    }
+
+    .portfolioMainTitle {
+        font-size: 1.8rem;
+    }
+}

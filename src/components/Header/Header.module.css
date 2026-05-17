@@ -1,0 +1,347 @@
+.headerMain {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 110px;
+
+  display: flex;
+  align-items: center;
+
+  z-index: 1000;
+
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.headerContainer {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  width: auto;
+  height: 115px;
+
+  object-fit: contain;
+
+  transition: transform 0.3s ease;
+}
+
+.logoImage:hover {
+  transform: scale(1.03);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navMenu {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+
+  list-style: none;
+}
+
+.navLink {
+  position: relative;
+
+  color: #d4d4d8;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #ffffff;
+}
+
+.navLink::after {
+  content: '';
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 2px;
+
+  background: #ef4444;
+
+  border-radius: 999px;
+
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.actionArea {
+  display: flex;
+  align-items: center;
+}
+
+.btnReservation {
+  padding: 14px 30px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    #ef4444,
+    #dc2626
+  );
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.22);
+}
+
+.btnReservation:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 16px 35px rgba(239, 68, 68, 0.4);
+}
+
+/* Container que agrupa os textos */
+.logoTextContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Garante que o texto fique perfeitamente alinhado à esquerda */
+  padding-left: 5px; 
+}
+
+.brandName {
+  /* Arial Black ou Inter Black dão o peso necessário */
+  font-family: 'Arial Black', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-style: italic; /* O itálico é essencial para o estilo automotivo */
+  color: #e31e24;     /* Vermelho esportivo */
+  margin: 0;
+  line-height: 0.85;  /* Deixa o texto compacto e agressivo */
+  letter-spacing: -1.5px; /* "Aperta" as letras para um look de marca cara */
+  text-transform: uppercase;
+}
+
+.whiteText {
+  color: #ffffff;
+  /* Um leve brilho para dar profundidade (opcional) */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+/* Inicialmente o ícone hambúrguer fica escondido no computador */
+.hamburgerIcon {
+  display: none;
+  font-size: 1.8rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.hamburgerIcon:hover {
+  color: #ef4444; /* Acende vermelho ao passar o mouse */
+}
+
+/* --- LOGICA DO RESPONSIVO (TELAS ATÉ 900px e CELULARES) --- */
+@media (max-width: 900px) {
+  .headerMain {
+    height: 80px;
+    position: relative;
+  }
+
+  /* Some com o botão de agendamento e o menu comum para limpar a tela */
+  .btnReservation {
+    display: none !important;
+  }
+
+  /* Mostra o Menu Hambúrguer no canto direito */
+  .hamburgerIcon {
+    display: block;
+  }
+
+  /* Transforma o menu em uma lista oculta que desce quando clicada */
+  .navMenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #0a0a0a;
+    border-bottom: 2px solid #262626;
+    padding: 20px 0;
+    gap: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  /* Classe ativada via JavaScript quando clica no hambúrguer */
+  .navMenuAberto {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navLink {
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .logoImage {
+    height: 40px; /* Ajuste sutil na logo para telas bem pequenas */
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* --- RESPONSIVO PARA TABLETS --- */
+@media (max-width: 900px) {
+ @media (max-width: 900px) {
+  /* Garante que a barra do header não mude de tamanho */
+  .headerMain {
+    height: 80px !important;
+    position: relative;
+  }
+
+  /* Some com o botão vermelho de agendamento */
+  .btnReservation {
+    display: none !important;
+  }
+
+  /* Força o ícone do hambúrguer/X a aparecer */
+  .hamburgerIcon {
+    display: block !important;
+  }
+
+  /* O MENU (NAV) - Ele vai virar uma caixinha flutuante que clareia na tela */
+  .navMenu {
+    display: block !important; /* Força o elemento a existir no mobile */
+    position: absolute;
+    top: 80px; /* Gruda logo abaixo do cabeçalho */
+    left: 0;
+    width: 100%;
+    background-color: #0a0a0a; /* Fundo idêntico ao do site */
+    border-bottom: 2px solid #262626;
+    padding: 20px 0;
+    
+    /* Estado inicial: Escondido e invisível */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 9999 !important; /* Fica na frente de banners e cards */
+  }
+
+  /* CLASSE QUE O REACT ATIVA NO CLIQUE (Muda opacity e faz aparecer!) */
+  .navMenuAberto {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+  }
+
+  /* A LISTA DE LINKS (UL) - Força a virar uma coluna vertical */
+  .navList {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  /* OS BOTÕES DE LINK INDIVIDUAIS */
+  .navLink {
+    font-size: 1.1rem !important;
+    color: #ffffff !important;
+    background: transparent !important;
+    border: none !important;
+    width: 100% !important;
+    text-align: center !important;
+    padding: 10px 0 !important;
+    cursor: pointer;
+  }
+  
+  .navLink:hover {
+    color: #ef4444 !important; /* Fica vermelho no hover */
+  }
+}
+}
+
+/* --- RESPONSIVO PARA CELULARES PEQUENOS (iPhone, etc) --- */
+@media (max-width: 500px) {
+  .headerMain {
+    padding: 12px 0;
+  }
+
+  .headerContainer {
+    padding: 0 15px;
+    gap: 10px; /* Garante que eles nunca grudem um no outro */
+  }
+
+  .logoImage {
+    height: 35px; /* Tamanho perfeito para telas pequenas não espremer */
+  }
+
+  .btnReservation {
+    padding: 8px 14px;
+    font-size: 10px;
+    white-space: nowrap; /* Impede que o texto do botão quebre em duas linhas */
+  }
+}
