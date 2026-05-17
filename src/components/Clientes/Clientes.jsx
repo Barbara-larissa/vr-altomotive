@@ -3,8 +3,9 @@ import styles from './Clientes.module.css';
 
 const Clientes = () => {
   const carrosselRef = useRef(null);
+  const videoCarrosselRef = useRef(null);
 
-  // Funções para mover o carrossel nas setas
+  // Funções para mover o carrossel de fotos
   const moverEsquerda = () => {
     if (carrosselRef.current) {
       carrosselRef.current.scrollBy({ left: -300, behavior: 'smooth' });
@@ -14,6 +15,19 @@ const Clientes = () => {
   const moverDireita = () => {
     if (carrosselRef.current) {
       carrosselRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
+
+  // Funções para mover o carrossel de vídeos
+  const moverVideoEsquerda = () => {
+    if (videoCarrosselRef.current) {
+      videoCarrosselRef.current.scrollBy({ left: -350, behavior: 'smooth' });
+    }
+  };
+
+  const moverVideoDireita = () => {
+    if (videoCarrosselRef.current) {
+      videoCarrosselRef.current.scrollBy({ left: 350, behavior: 'smooth' });
     }
   };
 
@@ -27,45 +41,51 @@ const Clientes = () => {
           <div className={styles.titleLine}></div>
         </div>
 
-        {/* Grid de Vídeos */}
-        <div className={styles.videosGrid}>
-          <div className={styles.videoCard}>
-            <video controls preload="metadata" muted>
-              <source src="/img/videos/client-1.mp4" type="video/mp4" />
-              Seu navegador não suporta vídeos.
-            </video>
+        {/* --- CARROSSEL DE VÍDEOS --- */}
+        <div className={styles.carrosselContainer}>
+          <button className={`${styles.setaBtn} ${styles.setaEsquerda}`} onClick={moverVideoEsquerda}>
+            &#10094;
+          </button>
+
+          {/* Container do carrossel controlado de forma limpa e com scroll horizontal invisível */}
+          <div 
+            ref={videoCarrosselRef} 
+            className="flex gap-6 overflow-x-auto scroll-smooth w-full py-4 snap-x [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {/* CARD 1 */}
+            <div className={`${styles.videoCard} shrink-0 w-[320px] md:w-[350px] snap-start`}>
+              <video controls preload="metadata" muted className="w-full h-[65vh] object-cover rounded-xl">
+                <source src="/img/videos/client-1.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeos.
+              </video>
+            </div>
+
+            {/* CARD 2 */}
+            <div className={`${styles.videoCard} shrink-0 w-[320px] md:w-[350px] snap-start`}>
+              <video controls preload="metadata" muted className="w-full h-[65vh] object-cover rounded-xl">
+                <source src="/img/videos/client-3.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeos.
+              </video>
+            </div>
+
+            {/* CARD 3 */}
+            <div className={`${styles.videoCard} shrink-0 w-[320px] md:w-[350px] snap-start`}>
+              <video controls preload="metadata" muted className="w-full h-[65vh] object-cover rounded-xl">
+                <source src="/img/videos/client-4.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeos.
+              </video>
+            </div>
           </div>
 
-          <div className={styles.videoCard}>
-            <video controls preload="metadata" muted>
-              <source src="/img/videos/client-3.mp4" type="video/mp4" />
-            </video>
-          </div>
-
-          <div className={styles.videoCard}>
-            <video controls preload="metadata" muted>
-              <source src="/img/videos/client-4.mp4" type="video/mp4" />
-            </video>
-          </div>
-
-          <div className={styles.videoCard}>
-            <video controls preload="metadata" muted>
-              <source src="/img/videos/clinete-5.mp4" type="video/mp4" />
-            </video>
-          </div>
-
-          <div className={styles.videoCard}>
-            <video controls preload="metadata" muted>
-              <source src="/img/videos/clinete-6.mp4" type="video/mp4" />
-            </video>
-          </div>
+          <button className={`${styles.setaBtn} ${styles.setaDireita}`} onClick={moverVideoDireita}>
+            &#10095;
+          </button>
         </div>
 
         {/* Linha Divisória sutil */}
         <hr className={styles.sectionDivider} />
 
         {/* --- ESTRUTURA DO CARROSSEL DE FOTOS --- */}
-        {/* --- ESTRUTURA DO CARROSSEL DE FOTOS CORRIGIDA --- */}
         <div className={styles.carrosselContainer}>
           <button className={`${styles.setaBtn} ${styles.setaEsquerda}`} onClick={moverEsquerda}>
             &#10094;
@@ -82,7 +102,6 @@ const Clientes = () => {
               <img src="/img/galeria/cliente-3.png" alt="Trabalho VR 3" />
             </div>
             <div className={styles.photoCard}>
-              {/* Corrigido para 'cliente-4.png' com o hífen! */}
               <img src="/img/galeria/cliente-4.png" alt="Trabalho VR 4" />
             </div>
           </div>
@@ -91,7 +110,7 @@ const Clientes = () => {
             &#10095;
           </button>
         </div>
-
+      
       </div>
     </section>
   );
