@@ -20,7 +20,7 @@ const Clientes = () => {
   return (
     <section className={styles.portfolioSection}>
       <div className={styles.container}>
-        
+
         {/* Título Único da Página */}
         <div className={styles.portfolioHeader}>
           <h2 className={styles.portfolioMainTitle}>Nossos Clientes</h2>
@@ -65,13 +65,12 @@ const Clientes = () => {
         <hr className={styles.sectionDivider} />
 
         {/* --- ESTRUTURA DO CARROSSEL DE FOTOS --- */}
+        {/* --- ESTRUTURA DO CARROSSEL DE FOTOS CORRIGIDA --- */}
         <div className={styles.carrosselContainer}>
-          {/* Botão Esquerda */}
           <button className={`${styles.setaBtn} ${styles.setaEsquerda}`} onClick={moverEsquerda}>
             &#10094;
           </button>
 
-          {/* Área das Fotos */}
           <div className={styles.photosCarrossel} ref={carrosselRef}>
             <div className={styles.photoCard}>
               <img src="/img/galeria/cliente-1.png" alt="Trabalho VR 1" />
@@ -83,11 +82,11 @@ const Clientes = () => {
               <img src="/img/galeria/cliente-3.png" alt="Trabalho VR 3" />
             </div>
             <div className={styles.photoCard}>
-              <img src="/img/galeria/cliente4.png" alt="Trabalho VR 4" />
+              {/* Corrigido para 'cliente-4.png' com o hífen! */}
+              <img src="/img/galeria/cliente-4.png" alt="Trabalho VR 4" />
             </div>
           </div>
 
-          {/* Botão Direita */}
           <button className={`${styles.setaBtn} ${styles.setaDireita}`} onClick={moverDireita}>
             &#10095;
           </button>
